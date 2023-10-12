@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Desk Lights Control ✨</title>
+<style>
+*{outline:none;transition:.4s;}
+body{background-color:black;color:white;font-family:arial;display:flex;flex-direction:column;}
+#modes{height:30px;display:flex}
+#modes>*{flex:1;border:2px white solid;color:white;margin:1px;font-size:1em;border-radius:3px;}
+#settings{flex-grow:1}
+.mode{background-color:#444;}
+.mode:hover{background-color:#777;}
+.mode.selected{background-color:#0a0;}
+.page{display:none;}
+.page.selected{display:block;}
+span{float:left;}
+.page>input{float:right;width:50%;}
+input[type="color"]{background-color:black;border:solid white 2px;border-radius:5px;}
+</style>
+</head>
+<body>
+<div id="modes">
+<input type="button" value="Rainbow" class="mode selected" name="rainbow">
+<input type="button" value="Static" class="mode" name="static">
+<input type="button" value="Static fade" class="mode" name="static_fade">
+</div>
+<div id="settings">
+<br>
+<div class="page selected" id="rainbow">
+<span>Speed: <number name="speed">10</number>ms </span><input type="range" name="speed" min=0 max=100 value=10>
+<br>
+<span>Backwards: </span><input type="checkbox" name="backwards">
+<br>
+<span>Range: <number name="range">90</number> </span><input type="range" name="range" min=0 max=359 value=90>
+</div>
+<div class="page" id="static">
+<span>Color: </span><input type="color" name="color" value="#ffc600">
+<br>
+<span>Brightness: <number name="brightness">255</number> </span><input type="range" name="brightness" min=0 max=255 value=255>
+</div>
+<div class="page" id="static_fade">
+<span>Color: </span><input type="color" name="color" value="#ffc600">
+<br>
+<span>Speed: <number name="speed">15</number>ms </span><input type="range" name="speed" min=0 max=50 value=15>
+<br>
+<span>Hold: <number name="hold">1000</number>ms </span><input type="range" name="hold" min=0 max=10000 value=1000 step=100>
+</div>
+</div>
+</body>
+</html>
